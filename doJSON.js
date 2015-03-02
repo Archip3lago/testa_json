@@ -12,5 +12,18 @@ $(document).ready(function() {
             });
         }
     });
+    
+    $('.knapp').click(function(){
+       var stuff = $('.stuff').val();
+       $.getJSON("dator.php",{namn: stuff}, function(data){
+          $('ul').append("<li"+data.saker[0].namn+"</li>"); 
+       });
+    });
+    
+    $('form').submit(function(event){
+       event.preventDefault();
+       console.log('haha');
+    });
+    
 });
 
